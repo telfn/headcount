@@ -23,9 +23,9 @@ function generateTimeSlots() {
 }
 
 function calculateTotal() {
-    const level1 = parseInt(document.getElementById('level1').value) || 0;
     const level2 = parseInt(document.getElementById('level2').value) || 0;
-    const total = level1 + level2;
+    const level3 = parseInt(document.getElementById('level3').value) || 0;
+    const total = level2 + level3;
 
     document.getElementById('totalHeadcount').textContent = `Total Headcount: ${total}`;
     // Optional: Save to Excel here
