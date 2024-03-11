@@ -16,6 +16,16 @@
                 <label for="weekStart">Week Commencing:</label>
                 <input type="date" id="weekStart" name="weekStart" required>
             </div>
+			
+			<!--Daily input -->
+			
+			<div id="dailyInputs">
+            <!-- Dynamically generated input fields will go here -->
+        </div>
+
+        <button type="button" onclick="generateExcel()">Save to Excel</button>
+    </form>
+			
             
 			<div class="schedule-container">
         <div id="timeSlots" class="time-slots"></div>
