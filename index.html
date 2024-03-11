@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Success Centre Headcount Weekly Scheduler</title>
     <link rel="stylesheet" href="Headcount.css">
+	<link rel="stylesheet" href="timeSlots.css">
 </head>
 <body>
 	
@@ -16,7 +17,9 @@
                 <input type="date" id="weekStart" name="weekStart" required>
             </div>
             
-            <div id="timeSlots"></div>
+			<div class="schedule-container">
+        <div id="timeSlots" class="time-slots"></div>
+    </div>
 
             <div class="input-group">
                 <label for="level1">Level 1:</label>
@@ -33,6 +36,8 @@
 
     <script src="xlsx.full.min.js"></script>
     <script src="scheduler.js"></script>
+	<script src="saveEXCEL.js"></script>
+	<script src="timeSlots.js"></script>
 	<!--JavaScript Headcount -->
 </body>
 </html>

@@ -1,0 +1,28 @@
+@charset "utf-8";
+/* CSS Document timeSlots */
+.schedule-container {
+    max-width: 960px;
+    margin: auto;
+    overflow-x: auto; /* Allows horizontal scrolling if content is too wide */
+}
+
+.time-slots {
+    display: flex; /* Aligns time slots horizontally */
+    flex-wrap: nowrap; /* Prevents wrapping */
+}
+
+.time-slot {
+    flex: 0 0 auto; /* Prevents slots from growing or shrinking */
+    width: 120px; /* Width of each time slot */
+    padding: 10px;
+    margin: 5px;
+    text-align: center;
+    border-radius: 5px;
+    background-color: lightblue; /* Default background color */
+}
+
+.time-slot:nth-child(odd) {
+    background-color: lightgreen; /* Alternate color for odd slots */
+}
+
+
