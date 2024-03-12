@@ -1,54 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Success Centre Headcount Weekly Scheduler</title>
-    <link rel="stylesheet" href="Headcount.css">
-	<link rel="stylesheet" href="timeSlots.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Headcount Form</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-	
-	
-    <div class="container">
-        <h2>Success Centre Headcount Weekly Scheduler</h2>
-        <form id="schedulerForm">
-            <div class="input-group">
-                <label for="weekStart">Week Commencing:</label>
-                <input type="date" id="weekStart" name="weekStart" required>
-            </div>
-			
-			<!--Daily input -->
-			
-			<div id="dailyInputs">
-            <!-- Dynamically generated input fields will go here -->
-        </div>
-
-        <button type="button" onclick="generateExcel()">Save to Excel</button>
-    </form>
-			
-            
-			<div class="schedule-container">
-        <div id="timeSlots" class="time-slots"></div>
-		
-    </div>
-
-            <div class="input-group">
-                <label for="level2">Level 2:</label>
-                <input type="number" id="level2" name="level2" required>
-            </div>
-            <div class="input-group">
-                <label for="level3">Level 3:</label>
-                <input type="number" id="level3" name="level3" required>
-            </div>
-            <button type="button" onclick="calculateTotal()">Calculate Total</button>
-            <div id="result">Total: 0</div>
-        </form>
-    </div>
-
-    <script src="xlsx.full.min.js"></script>
-    <script src="scheduler.js"></script>
-	<script src="saveEXCEL.js"></script>
-	<script src="timeSlots.js"></script>
-	<!--JavaScript Headcount -->
+<div class="headcount-form">
+    <input type="date" id="weekCommencing" min="2024-01-01" max="2024-12-31">
+    <div id="timeSlots"></div>
+    <input type="number" id="level2" placeholder="Level 2">
+    <input type="number" id="level3" placeholder="Level 3">
+    <button onclick="calculate()">Calculate</button>
+    <button onclick="saveToSheet()">Save</button>
+    <button onclick="downloadSheet()">Download</button>
+</div>
+<script src="script.js"></script>
 </body>
 </html>
