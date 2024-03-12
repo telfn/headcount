@@ -1,44 +1,38 @@
-// JavaScript timeSlot
+// JavaScript Document
 document.addEventListener('DOMContentLoaded', function() {
     generateTimeSlots();
 });
 
 function generateTimeSlots() {
-    const container = document.getElementById('timeSlots');
-    for (let hour = 8; hour <= 19; hour++) {
-        for (let minute = 0; minute < 60; minute += 30) { // Assuming 30-minute slots
-            const time = `${hour}:${minute === 0 ? '00' : minute}`;
-            const label = document.createElement('label');
-            label.classList.add('time-slot');
-            label.textContent = time;
-            
-            const checkbox = document.createElement('input');
-            checkbox.type = 'checkbox';
-            checkbox.id = time;
-            checkbox.name = time;
-            
-            label.appendChild(checkbox);
-            container.appendChild(label);
+    const startHour = 8.5; // 8:30 AM
+    const endHour = 19; // 7:00 PM
+    const timeSlotsContainer = document.getElementById('timeSlots');
+    timeSlotsContainer.innerHTML = ''; // Clear previous slots
 
-            checkbox.addEventListener('change', saveToExcel);
-        }
+    for (let hour = startHour; hour < endHour; hour += 0.5) {
+        const timeSlotDiv = document.createElement('div');
+        timeSlotDiv.classList.add('timeSlot');
+        const displayHour = Math.floor(hour);
+        const displayMinute = (hour % 1) * 60 === 0 ? '00' : '30';
+        timeSlotDiv.textContent = `${displayHour}:${displayMinute}`;
+        timeSlotsContainer.appendChild(timeSlotDiv);
     }
 }
 
-function collectData() {
-    const slots = document.querySelectorAll('.time-slot input');
-    const data = [["Time Slot", "Selected"]];
-    slots.forEach(slot => {
-        const selected = slot.checked ? "Yes" : "No";
-        data.push([slot.name, selected]);
-    });
-    return data;
+function calculate() {
+    const level2 = parseInt(document.getElementById('level2').value) || 0;
+    const level3 = parseInt(document.getElementById('level3').value) || 0;
+    const total = level2 + level3;
+    alert(`Total: ${total}`);
 }
 
-function saveToExcel() {
-    const data = collectData();
-    const ws = XLSX.utils.aoa_to_sheet(data);
-    const wb = XLSX.utils.book_new();
-    XLSX.utils.book_append_sheet(wb, ws, "Time Slots");
-    XLSX.writeFile(wb, "schedule.xlsx");
+function saveToSheet() {
+    // This function requires server-side or a library like SheetJS (xlsx.js) for client-side handling
+    alert('Saving to sheet function is not implemented in this snippet.');
 }
+
+function downloadSheet() {
+    // Similar to saveToSheet, requires server-side handling or a library
+    alert('Download sheet function is not implemented in this snippet.');
+}
+timeSlottimeSlot
